@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<style type="text/css">
+				.tabela {
+							font-family: Verdana, Arial, Helvetica, sans-serif;
+							font-size: 10px;
+				}
+				</style>
+				<script>
+				function formatar(mascara, documento){
+				  var i = documento.value.length;
+				  var saida = mascara.substring(0,1);
+				  var texto = mascara.substring(i)
+				  
+				  if (texto.substring(0,1) != saida){
+							documento.value += texto.substring(0,1);
+				  }
+				  
+				}
+				</script>
+		<meta charset="utf-8">
+		<title>Cadastro Paciente</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+
+		<!--NECESSÁRIO EM TODAS AS TELAS, POIS É A LIB AJAX-->		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('images/images.jpg');">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="images/paciente.jpg" width="550" height="550" style="margin-top: 50%" alt="">
+				</div>
+				<!--necessário criar um ID único para a tela dentro do body, onde passamos como parâmetro lá em baixo, para fazer a chamada dos ID dos campos
+						com o nome do atributo no back-end, a mesma coisa de quando fazemos com o postman, verificar abaixo o formato em Json-->
+				<form action="" id="formcadastroPaciente">
+					<h3>Faça o seu Cadastro</h3>
+					<div class="form-group">
+						<input type="text" placeholder="Primeiro Nome" class="form-control" id= "nomePaciente">
+						<input type="text" placeholder="Sobrenome" class="form-control" id= "sobrenomePaciente">
+					</div>
+				
+			
+
+					<div class="form-wrapper">
+						<select name="" class="form-control" id= "sexo">
+							<option value="" disabled selected>Selecione seu Gênero</option>
+							<option value="Masculino">Masculino</option>
+							<option value="Feminino">Feminino</option>
+							<option value="Outros">Outros</option>
+							
+						</select>
+						<i class="zmdi zmdi-caret-down zmdi zmdi-city" style="font-size: 17px"></i>
+					</div>
+
+					<div class="form-wrapper">
+						<input type="text" placeholder="Idade" class="form-control" id= "idadePaciente">
+						<i class="zmdi zmdi-home"></i>
+					</div>
+
+					<div class="form-wrapper">
+					<option value="" disabled selected>CPF:</option>
+					<input type="text" placeholder="Ex: 000.000.000-00" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)"  class="form-control" id= "cpfPaciente">
+					<i class="zmdi zmdi-receipt"></i>
+				</div>	  			
+
+					<div class="form-wrapper">
+						<option value="" disabled selected>Data de Nascimento:</option>
+							<input type="date" placeholder="Data de Nascimento" class="form-control" id="dataNascPaciente">
+							<i class="zmdi zmdi-cake"></i>
+						</div>
+
+					
+					<div class="form-wrapper">
+						<select name="" class="form-control" id="estadoPaciente">
+							<option value="" disabled selected>Selecione seu Estado</option>
+							<option value="Belo Horizonte">Belo Horizonte</option>
+							<option value="Curitiba">Curitiba</option>
+							<option value="Fortaleza">Fortaleza</option>
+							<option value="Manaus">Manaus</option>
+							<option value="Porto Alegre">Porto Alegre</option>
+							<option value="Rio de Janeiro">Rio de Janeiro</option>
+							<option value="São Paulo">São Paulo</option>
+						</select>
+						<i class="zmdi zmdi-caret-down zmdi zmdi-city" style="font-size: 17px"></i>
+					</div>
+
+					<div class="form-wrapper">
+					<option value="" disabled selected>CEP:</option>
+					<input type="text" placeholder="Ex: 00.000-000" maxlength="10" OnKeyPress="formatar('##.###-###', this)" class="form-control" id="cepPaciente">
+					<i class="zmdi zmdi-city"></i>
+				</div>
+
+				<div class="form-wrapper">
+					<input type="text" placeholder="Endereço" class="form-control" id= "enderecoPaciente">
+					<i class="zmdi zmdi-home"></i>
+				</div>
+					<div class="form-group">
+							<input type="text" placeholder="Bairro" class="form-control" id="bairroPaciente"> 
+							<input type="number" placeholder="Número" class="form-control" id="numeroPaciente">
+						</div>
+						
+					
+
+							<div class="form-wrapper">
+									<option value="" disabled selected>Celular:</option>
+							<input type="text" placeholder="Ex: (99)-99999-9999" maxlength="14" OnKeyPress="formatar('##-#####-####', this)" class="form-control" id="telefonePaciente">
+						</div>
+
+						
+					
+					<div class="form-wrapper">
+						<input type="password" placeholder="Senha" class="form-control" id= "senhaPaciente">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Confirmar Senha" class="form-control" id="senhaConformarPaciente">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<button>Cadastrar
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+		<script>
+			// pra ver se o jquery funciona
+			$( document ).ready(function() {
+				console.log( "ready!" );
+			});
+
+			$('#formcadastroPaciente').on('submit', function(event) {
+				event.preventDefault();
+
+				if($('#senhaPaciente').val() !=  $('#senhaConformarPaciente').val()) {
+							alert("As senhas não conferem!!");
+							return;
+				} 
+
+				let data = {
+					'nomePaciente': $('#nomePaciente').val() + " " + document.getElementById('sobrenomePaciente').value,
+					"telefone" : $('#telefonePaciente').val(),
+					"sexo" : $('#sexo').val(),
+					"idade" : $('#idadePaciente').val(),
+					"endereco" : $('#enderecoPaciente').val()+","+$('#numeroPaciente').val() + " - " + $('#bairroPaciente').val() + ", " + $('#estadoPaciente').val() + " - " + $('#cepPaciente').val() ,
+					"dataNascimento": $('#dataNascPaciente').val(),
+					"credenciaisPaciente" : {
+						"cpfPaciente" : $('#cpfPaciente').val(),
+						"senha" : $('#senhaPaciente').val() 
+					}
+				}
+
+				$.ajax("http://localhost:8080/cadastroPaciente", {
+					method: 'POST',
+					headers: {
+						'Content-Type':'application/json',		
+					},
+					data: JSON.stringify(data),
+					dataType: 'json',
+					success: function(resposta) {
+						// localStorage.setItem('token', resposta)
+						if(resposta) { 
+							console.log(resposta)
+							alert('cadastrado')
+						} else {
+							alert('deu algum erro')
+						}
+					},
+					error: function(erro) {
+						console.log(erro);
+					}
+				})
+
+				
+			})
+		</script>
+		
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

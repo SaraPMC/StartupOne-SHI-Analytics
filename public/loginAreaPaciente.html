@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Área Paciente</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+<!--NECESSÁRIO EM TODAS AS TELAS, POIS É A LIB AJAX-->		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+
+
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('img/paciente.jpeg');">
+			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<b>
+						<span class="login100-form-title p-b-52" style="color:red">
+							Área Paciente
+						</span>
+					</b>
+	
+
+					<a href="#" class="btn-face m-b-20">
+						<i class="fa fa-facebook-official"></i>
+						Facebook
+					</a>
+
+					<a href="#" class="btn-google m-b-20">
+						<img src="img/icons/icon-google.png" alt="GOOGLE">
+						Google
+					</a>
+					
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							CPF
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" id="cpfPaciente" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="p-t-13 p-b-9">
+						<span class="txt1">
+							Senha
+						</span>
+
+						<a href="#" class="txt2 bo1 m-l-5">
+							Esqueceu á senha?
+						</a>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" id="senhaPaciente" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17" id="entrarPaciente">
+						<a class="login100-form-btn">
+							Entrar
+						</a>
+					</div>
+
+					<div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Não tem Cadastro?
+						</span>
+
+						<a href="cadastro\colorlib-regform-17\indexPaciente.html" class="txt2 bo1">
+							Cadastra-se Agora!
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<script>
+			// pra ver se o jquery funciona
+				$( document ).ready(function() {
+					console.log( "ready!" );
+				});
+	
+				$('#entrarPaciente').on('click', function(event) {
+					
+					let data = {
+
+							"cpfPaciente" : $('#cpfPaciente').val(),
+							"senha" : $('#senhaPaciente').val() 
+					
+					}
+						//URL como fazemos com o postman
+					$.ajax("http://localhost:8080/loginPaciente", {
+	
+						//Tipo GET, POST, PUT, DELET
+						method: 'POST',
+	
+				
+						headers: {
+							'Content-Type':'application/json',		
+						},
+						data: JSON.stringify(data),
+						dataType: 'json',
+						success: function(resposta) {
+							// localStorage.setItem('token', resposta)
+							if(resposta) { 
+								console.log(resposta)
+
+								alert('Login efetuado com sucesso')
+								window.location.href="teste1.html"
+								
+							} else {
+								alert('deu algum erro')
+							}
+						},
+						error: function(erro) {
+							console.log(erro);
+						}
+					})
+	
+					
+				})
+			
+	</script>
+
+</body>
+</html>

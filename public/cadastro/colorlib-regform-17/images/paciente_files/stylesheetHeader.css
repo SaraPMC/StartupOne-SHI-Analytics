@@ -1,0 +1,561 @@
+#header
+{
+    min-width: 100%;
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 20px;
+    text-align: justify;
+    line-height: 0px;
+    vertical-align: top;
+    
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-content: center;
+    -webkit-align-content: center;
+    align-items: center;
+    -webkit-align-items: center;        
+    justify-content: space-between;
+    -webkit-justify-content: space-between;        
+    
+    
+}
+
+#headerLogoImage
+{
+    max-width: 200px;
+}
+
+#headerLogoImageSmall
+{
+    display: none;
+    border: none;
+    max-width: 50px;
+}    
+
+#headercontainerdiv
+{
+    min-width: 100%;
+    background-color: #FDFDFD;
+    background-image: none;
+    background-repeat: repeat;
+    background-size: auto;
+    line-height: 0px;
+    text-align: center;
+}
+
+#headernavigationcontainerdiv
+{
+    min-width: 100%;
+    height: 34px;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #D5D5D5;
+    border-bottom: 1px solid #D5D5D5;
+    border-top: 1px solid #E7E7E7;
+    border-bottom: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    box-shadow: none;
+    text-align: center;
+}
+
+#headerNavigationShopLink
+{
+    display: inline-block;
+}
+
+
+#menuTopArt > a
+{
+    padding-left: 0px;
+    padding-right: 15px;
+    transition: padding 0.1s;
+}
+
+#menuTopArt:hover > a
+{
+    padding-left: 8px;
+    padding-right: 7px;
+}
+
+#menuTopThreeLines
+{
+    display: none;
+}
+
+#menuTopThreeLines > a
+{
+
+}
+
+#menuTopThreeLines > a > div
+{
+    background-color: #444444 !important;
+}
+
+#menuTopThreeLines:hover > a > div
+{
+
+}
+
+.navigationmenuright > li > a, .navigationmenuright > li:first-child > a
+{
+    border-left: 1px solid #DDDDDD;
+    border-left: none;
+}
+
+.navigationmenuright > li:last-child > a
+{
+    border-left: 1px solid #DDDDDD;
+    border-left: none;
+}
+
+.navigationmenuright > li:first-child > a
+{
+    padding-left: 15px;
+    padding-right: 0px;
+    transition: padding 0.25s;
+}
+
+.navigationmenuright > li:first-child:hover > a
+{
+    padding-left: 8px;
+    padding-right: 7px;
+}
+
+
+.navigationmenu > li:hover > a, .linkHighlighted > a
+{
+    color: #222222 !important;
+    background-color: #FFFFFF;
+    padding-top: 10px !important;
+    padding-bottom: 6px !important;
+    height: 16px !important;
+    border-bottom: 3px solid #57DBD7;
+    opacity: 1.0;
+    text-shadow: none;
+    margin-top: 0px;
+    transition: background-color 0.250s;
+}
+
+.headerNavigationLinks
+{
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    font-size: 11pt !important;
+    font-family: montserratregular, cabin !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-decoration: none !important;
+    color: #444444 !important;
+}
+
+.navigationmenudropdown
+{
+    top: 35px;
+    border: 1px solid #DDDDDD;
+    margin-top: 1px;
+}
+
+
+#headerLogoDiv
+{
+    display: inline-block;
+    order: 1;
+    -webkit-order: 1;
+    max-width: 225px;
+    overflow: hidden;
+}    
+
+#searchFormHeader
+{
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: calc(100% - 800px);
+    height: 32px;
+    margin: 0px;
+    background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    text-align: left;
+    
+    order: 2;
+    -webkit-order: 2;
+}
+
+#headerSearchTypeDiv
+{
+    float: left;
+    box-sizing: border-box;
+    width: 85px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-right: 1px solid #DDDDDD;
+    text-align: center;
+    cursor: pointer;
+    cursor: hand;
+    display: none;
+}    
+
+#searchFormCustomInput
+{
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    width: 75%;
+    max-width: 500px;
+    border: 1px solid #CCCCCC;
+    text-align: left;
+}
+
+#searchFormHeaderInput
+{
+    float: none;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    width: calc(100% - 30px);
+    height: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    font: 9pt arial;
+    color: #000000;
+}
+
+#searchFormHeaderImageXClearSearch
+{
+    display: none;
+    vertical-align: middle;
+    box-sizing: border-box;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    border: none;        
+}
+
+#searchFormHeaderImageMagnifyingGlass
+{
+    float: right;
+    box-sizing: border-box;
+    vertical-align: middle;
+    height: 100%;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    padding-right: 8px;        
+    border: none;
+}
+
+.searchFormHeaderActivated #headerSearchTypeDiv
+{
+    display: inline-block;
+}
+
+.searchFormHeaderTagExists #searchFormHeaderImageXClearSearch
+{
+    display: inline-block;
+}
+
+.searchFormHeaderActivated #searchFormHeaderInput
+{
+    width: calc(100% - 120px);
+}
+
+.searchFormHeaderActivated.searchFormHeaderTagExists #searchFormHeaderInput
+{
+    width: calc(100% - 150px);
+    padding-left: 5px;
+}    
+
+#headerMainLinksContainer
+{
+    display: inline-block;
+    width: 325px;
+    order: 3;
+    -webkit-order: 3;        
+} 
+
+
+#headerShoppingCartDivNew
+{
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+    order: 4;
+    -webkit-order: 4;
+}    
+
+
+#headerNavigationSearchIcon
+{
+    display: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+    height: 100%;
+    max-height: 20px;
+    margin: 0px;
+    margin-left: 10px;
+}    
+
+.headerNavigationButton, .headerNavigationButton:active, .headerNavigationButton:link, .headerNavigationButton:visited, .headerNavigationButton:hover
+{
+    display: inline-block;
+    box-sizing: border-box;
+    width: auto;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 0px;
+    font-size: 10pt;
+    font-family: cabin, arial, sans-serif;
+    text-decoration: none !important;
+}
+
+.headerNavigationButton:hover
+{
+    color: #FFFFFF !important;
+    border-color: #6AC99D;
+    background-color: #6AC99D;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1250px)
+{
+    #searchFormHeader
+    {
+        width: calc(100% - 550px);
+    }
+    
+    #headerMainLinksContainer
+    {
+        width: 220px;
+    }
+
+    #headerNavigationDiscoverLink
+    {
+        display: none;
+    }        
+}
+
+@media screen and (max-width: 1200px)
+{
+    #menuTopCommunityRight
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1100px)
+{                
+    #headerNavigationCreateLink
+    {
+        display: inline-block;
+    }
+
+    #menuTopMemberInbox, #menuTopMemberActivity
+    {
+        display: none;
+    }
+
+}    
+
+@media screen and (max-width: 1000px)
+{
+            
+    #menuTopThreeLines
+    {
+        display: inline-block;
+    }
+
+    #menuTopThreeLines > a
+    {
+        display: inline-block;
+        padding-left: 0px;
+        padding-right: 15px;
+        transition: padding 0.1s;            
+    }        
+           
+    #menuTopThreeLines:hover > a
+    {
+        /*padding-left: 8px;
+        padding-right: 7px;*/
+        border-color: transparent;
+    }
+    
+    #menuTopArt > a
+    {
+        padding-left: 8px;
+        padding-right: 7px;
+    }
+    
+    #menuTopApparel
+    {
+        display: none;
+    }
+    
+    #menuTopCommunityRight2
+    {
+        display: none;
+    }
+    
+}
+
+
+@media screen and (max-width: 880px)
+{
+    #headerLogoImage
+    {
+        max-width: 150px;
+    }
+    
+    #headerLogoImageSmall
+    {
+        display: none;
+    }        
+ 
+    #searchFormHeader
+    {
+        width: calc(100% - 480px);
+    }     
+
+    #headerNavigationShopLink, #headerNavigationCreateLink
+    {
+        display: inline-block;
+    }
+             
+}
+
+@media screen and (max-width: 800px)
+{
+    #menuTopPhotographers
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px)
+{
+    #headerLogoImage
+    {
+        display: inline-block;
+    }
+    
+    #headerLogoImageSmall
+    {
+        display: none;
+    } 
+
+    #headerLogoCompanyName
+    {
+        display: none;
+    }
+    
+    #headerMainLinksContainer
+    {
+        width: calc(100% - 280px);
+    }        
+    
+    #menuTopThreeLines
+    {
+        display: inline-block;
+    }
+    
+    #searchFormHeader
+    {
+        display: none;
+        width: 100%;
+        margin-top: 20px;
+        order: 5;
+        -webkit-order: 5;
+    }
+    
+    #headerNavigationCreateLink, #headerNavigationDiscoverLink
+    {
+        display: none;
+    }
+    
+    #menuTopArt, #menuTopSlimAarons, #menuTopPhotographers, #menuTopSubjects
+    {
+        display: none;
+    }
+
+    #headerNavigationSearchIcon
+    {
+        display: inline-block;
+    }
+    
+    .navigationmenuright > li:first-child > a
+    {
+        padding-left: 8px;
+        padding-right: 7px;
+        margin-right: 5px;
+    }
+
+    #searchFormCustomInput
+    {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 640px)
+{
+    #headerMainLinksContainer
+    {
+        width: calc(100% - 210px);
+    }        
+    
+    #headerNavigationSellLink
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    #headerAnnouncementDiv
+    {
+        display: inline-block;
+    }
+    
+    #headerAnnouncementDiv p
+    {
+        font-size: 9pt !important;
+    }
+}
+
+@media screen and (max-width: 560px)
+{
+
+    #headercontainerdiv .container
+    {
+        width: 95%;
+    }
+
+    #headernavigationcontainerdiv .container
+    {
+        width: 100%;
+    }        
+    
+    
+    #menuTopThreeLines > a
+    {
+        padding-left: 8px;
+        padding-right: 7px;
+    }           
+}

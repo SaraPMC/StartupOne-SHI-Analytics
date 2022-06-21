@@ -1,0 +1,81 @@
+(function () {
+  var scheme = (("https:" == document.location.protocol) ? "https" : "http");
+  var adnxs_domain = 'secure.adnxs.com';
+  var aol_domain = 'secure.leadback.advertising.com';
+  var rule = ["threeormoreartworkpagesviewed", "*/featured/*"];
+  if (scheme=='http') { adnxs_domain = 'ib.adnxs.com'; aol_domain = 'leadback.advertising.com';}
+  var el = document.createElement("div");
+  el.style["width"] = "1px";
+  el.style["height"] = "1px";
+  el.style["display"] = "inline";
+  el.style["position"] = "absolute";
+  var cm_urls = ["/cm/r/out?advertisable=WJZGQUZMOBGNFHHWAGMZG7","/cm/b/out?advertisable=WJZGQUZMOBGNFHHWAGMZG7","/cm/x/out?advertisable=WJZGQUZMOBGNFHHWAGMZG7","/cm/l/out?advertisable=WJZGQUZMOBGNFHHWAGMZG7","/cm/o/out?advertisable=WJZGQUZMOBGNFHHWAGMZG7","/cm/g/out?advertisable=WJZGQUZMOBGNFHHWAGMZG7&google_nid=adroll"];
+  var img_tag = '<img height="1" width="1" style="border-style:none;" alt="" src="{}"/>\n';
+  var content = '';
+  for(var i = 0; i < cm_urls.length; i++) {
+    content += img_tag.replace("{}", __adroll._srv(cm_urls[i]));
+  }
+
+
+  var rollcrawl_opts = {
+      "regexp": ".*",
+      "blacklist_regexp": "",
+      "regexp_group": {"attribute":"value","path":"input[name=\"artworkid1\"]","scheme":"html","regular_expression":"","regular_expression_replace":""},
+      "product_group_regexp": null,
+      "product_group_group": null
+  };
+
+  if (__adroll.consent_allowed(__adroll.consent_networks.facebook)) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','//connect.facebook.net/en_US/fbevents.js');
+  }
+
+  try {
+      try {
+          if (__adroll.consent_allowed(__adroll.consent_networks.facebook)) {
+    if(typeof __adroll.fb === 'undefined'){
+    fbq('init', '212885946221183');
+    fbq('set', 'autoConfig', 'false', '212885946221183');
+    __adroll.fb=true;
+
+    var __fbcd = {segment_eid: "LP57TFOPBNA4TL7RFDCUAV"};
+    for (var prop in __adroll.get_external_data()){
+        __fbcd['ar_' + prop] = __adroll.get_external_data()[prop];
+    }
+
+    fbq('track', "PageView", __fbcd);
+    } else {
+    var __fbcd = {event: "EventSegment", segment_eid: "LP57TFOPBNA4TL7RFDCUAV"};
+    for (var prop in __adroll.get_external_data()){
+        __fbcd['ar_' + prop] = __adroll.get_external_data()[prop];
+    }
+
+    fbq('track', "CustomEvent", __fbcd);
+    }
+}
+
+      } catch(e) {}
+  } catch(e) {}
+
+  __adroll.get_pid(rollcrawl_opts);
+
+  var r = Math.random()*10000000000000000;
+  content = content.replace(/\[ord\]/gi, r);
+  content = content.replace(/\[protocol\]/gi, scheme);
+  content = content.replace(/\[adnxs_domain\]/gi, adnxs_domain);
+  content = content.replace(/\[aol_domain\]/gi, aol_domain);
+  var adroll_tpc = __adroll._global('adroll_tpc');
+  if (adroll_tpc) {
+    var srv_parts = __adroll._srv().split('?');
+    var srv_host = srv_parts[0].substr(srv_parts[0].indexOf(':') + 1);
+    var srv_re = new RegExp(srv_host + '([^\?\"\'\>\#\S]+)\\?*', 'gi');
+    content = content.replace(srv_re, srv_host + '$1?' + srv_parts[1] + '&');
+  }
+  content = __adroll.replace_external_data(content);
+  el.innerHTML = content;
+  __adroll._head().appendChild(el);
+  if (typeof __adroll.set_pixel_cookie != 'undefined') {__adroll.set_pixel_cookie(adroll_adv_id, adroll_pix_id, "LP57TFOPBNA4TL7RFDCUAV");}
+}());

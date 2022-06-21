@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<style type="text/css">
+		.tabela {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-size: 10px;
+		}
+	</style>
+	<script>
+		function formatar(mascara, documento) {
+			var i = documento.value.length;
+			var saida = mascara.substring(0, 1);
+			var texto = mascara.substring(i)
+
+			if (texto.substring(0, 1) != saida) {
+				documento.value += texto.substring(0, 1);
+			}
+
+		}
+	</script>
+
+
+	<meta charset="utf-8">
+	<title>Cadastro Instituição</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!--NECESSÁRIO EM TODAS AS TELAS, POIS É A LIB AJAX-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div class="wrapper" style="background-image: url('images/farmma.jpg');">
+		<div class="inner">
+			<div class="image-holder">
+				<img src="images/farm.jpg" height="350px" style="margin-top: 15%" alt="">
+			</div>
+			<form action="" id="formcadastroFarmacia">
+				<h3>Cadastre sua Instituição</h3>
+
+				<div class="form-wrapper">
+					<input type="text" placeholder="Nome da Farmacia" class="form-control" id="nomeFarmacia">
+					<i class="zmdi zmdi-city"></i>
+				</div>
+
+
+				<div class="form-wrapper">
+					<option value="" disabled selected>CNPJ:</option>
+					<input type="text" placeholder="Ex: 00.000-000/0000-00" maxlength="18"
+						OnKeyPress="formatar('##.###-###/####-##', this)" class="form-control" id="cnpjFarmacia">
+					<i class="zmdi zmdi-city"></i>
+				</div>
+
+				<div class="form-wrapper">
+					<input type="text" placeholder="Telefone Farmacia" class="form-control" id="telefoneFarmacia">
+					<i class="zmdi zmdi-home"></i>
+				</div>
+
+				<div class="form-wrapper">
+					<input type="text" placeholder="Endereço" class="form-control" id="enderecoFarmacaia">
+					<i class="zmdi zmdi-home"></i>
+				</div>
+
+				
+				<div class="form-group">
+					<input type="text" placeholder="Bairro" class="form-control" id="bairroFarmacia">
+					<input type="number" placeholder="Número" class="form-control" id="numeroFarmacia">
+				</div>
+				<button>Cadastrar
+
+					<i class="zmdi zmdi-arrow-right"></i>
+				</button>
+			</form>
+		</div>
+	</div>
+	<script>
+		// pra ver se o jquery funciona
+		$(document).ready(function () {
+			console.log("ready!");
+		});
+
+		$('#formcadastroFarmacia').on('submit', function (event) {
+			event.preventDefault();
+
+
+			let data = {
+				"nomeFarmacia": $('#nomeFarmacia').val(),
+				'cpnjFarmacia': $('#nomeFarmaceutico').val(),
+				"telefoneFarmacia": $('#telefoneFarmacia').val(),
+				"enderecoFarmacia": $('#enderecoFarmacaia').val() + "," +  $('#bairroFarmacia').val() + " - " + $('#numeroFarmacia').val()
+				
+			}
+		
+			$.ajax("http://localhost:8080/cadastroFarmacia", {
+				method: 'POST',
+			
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				data: JSON.stringify(data),
+				dataType: 'json',
+				success: function (resposta) {
+					// localStorage.setItem('token', resposta)
+					if (resposta) {
+						console.log(resposta)
+						alert('FARMACIA CADASTRADA!')
+					} else {
+						alert('deu algum erro')
+					}
+				},
+				error: function (erro) {
+					console.log(erro);
+				}
+			})
+
+
+		})
+	</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
